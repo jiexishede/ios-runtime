@@ -28,14 +28,13 @@ public:
 
 private:
     FunctionReferenceConstructor(JSC::VM& vm, JSC::Structure* structure)
-        : Base(vm, structure) {
+        : Base(vm, structure, &constructFunctionReferenceInstance, &constructFunctionReferenceInstance) {
     }
 
     void finishCreation(JSC::VM&, JSC::JSValue);
+    
+    static JSC::EncodedJSValue JSC_HOST_CALL constructFunctionReferenceInstance(JSC::ExecState* execState);
 
-    static JSC::ConstructType getConstructData(JSC::JSCell*, JSC::ConstructData&);
-
-    static JSC::CallType getCallData(JSC::JSCell*, JSC::CallData&);
 };
 } // namespace NativeScript
 

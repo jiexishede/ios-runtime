@@ -17,6 +17,8 @@ class PointerPrototype;
 class PointerConstructor : public JSC::InternalFunction {
 public:
     typedef JSC::InternalFunction Base;
+    
+    static JSC::EncodedJSValue JSC_HOST_CALL constructPointerInstance(JSC::ExecState* execState);
 
     static PointerConstructor* create(JSC::VM& vm, JSC::Structure* structure, PointerPrototype* pointerPrototype) {
         PointerConstructor* constructor = new (NotNull, JSC::allocateCell<PointerConstructor>(vm.heap)) PointerConstructor(vm, structure);
@@ -36,14 +38,10 @@ public:
 
 private:
     PointerConstructor(JSC::VM& vm, JSC::Structure* structure)
-        : Base(vm, structure) {
+        : Base(vm, structure, &constructPointerInstance, &constructPointerInstance) {
     }
 
     void finishCreation(JSC::VM&, PointerPrototype*);
-
-    static JSC::ConstructType getConstructData(JSC::JSCell*, JSC::ConstructData&);
-
-    static JSC::CallType getCallData(JSC::JSCell*, JSC::CallData&);
 
     static JSC::JSValue read(JSC::ExecState*, void const*, JSC::JSCell*);
 

@@ -29,14 +29,13 @@ public:
 
 private:
     ReferenceTypeConstructor(JSC::VM& vm, JSC::Structure* structure)
-        : Base(vm, structure) {
+        : Base(vm, structure, &constructReferenceType, &constructReferenceType) {
     }
 
     void finishCreation(JSC::VM&, JSObject*);
+    
+    static JSC::EncodedJSValue JSC_HOST_CALL constructReferenceType(JSC::ExecState* execState);
 
-    static JSC::ConstructType getConstructData(JSC::JSCell*, JSC::ConstructData&);
-
-    static JSC::CallType getCallData(JSC::JSCell*, JSC::CallData&);
 };
 } // namespace NativeScript
 
