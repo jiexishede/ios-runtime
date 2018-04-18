@@ -36,10 +36,9 @@ private:
     }
 
     void finishCreation(JSC::VM& vm, JSWorkerPrototype* prototype);
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL callJSWorker(JSC::ExecState* exec);
     static JSC::EncodedJSValue JSC_HOST_CALL constructJSWorker(JSC::ExecState* exec);
-    
 };
 } // namespace NativeScript
 

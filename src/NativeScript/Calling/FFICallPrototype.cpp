@@ -21,7 +21,7 @@ void FFICallPrototype::finishCreation(VM& vm, JSGlobalObject* globalObject) {
     Base::finishCreation(vm);
     didBecomePrototype();
 
-    JSC_NATIVE_FUNCTION(Identifier::fromString(&vm, "async"), FFICallPrototypeFuncAsync,  static_cast<unsigned>(PropertyAttribute::DontEnum), 0);
+    JSC_NATIVE_FUNCTION(Identifier::fromString(&vm, "async"), FFICallPrototypeFuncAsync, static_cast<unsigned>(PropertyAttribute::DontEnum), 0);
 }
 
 EncodedJSValue JSC_HOST_CALL FFICallPrototypeFuncAsync(ExecState* execState) {

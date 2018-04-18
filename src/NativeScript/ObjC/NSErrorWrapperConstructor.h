@@ -45,7 +45,7 @@ private:
     static void visitChildren(JSC::JSCell*, JSC::SlotVisitor&);
 
     JSC::WriteBarrier<JSC::Structure> _errorStructure;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL constructErrorWrapper(JSC::ExecState* execState);
 };
 } // namespace NativeScript

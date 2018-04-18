@@ -34,9 +34,8 @@ private:
     }
 
     void finishCreation(JSC::VM&, ReferencePrototype*);
-    
-    static JSC::EncodedJSValue JSC_HOST_CALL constructReference(JSC::ExecState* execState);
 
+    static JSC::EncodedJSValue JSC_HOST_CALL constructReference(JSC::ExecState* execState);
 };
 } // namespace NativeScript
 

@@ -57,7 +57,7 @@ private:
     JSC::WriteBarrier<FFIFunctionCallback> _functionCallback;
 
     JSC::WriteBarrier<JSC::JSCell> _function;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL callFunc(JSC::ExecState* execState);
 };
 } // namespace NativeScript

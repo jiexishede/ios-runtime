@@ -267,7 +267,7 @@ void Interop::finishCreation(VM& vm, GlobalObject* globalObject) {
 
     FunctionReferenceConstructor* functionReferenceConstructor = FunctionReferenceConstructor::create(vm, FunctionReferenceConstructor::createStructure(vm, globalObject, globalObject->functionPrototype()), functionReferencePrototype);
     this->putDirect(vm, Identifier::fromString(&vm, functionReferenceConstructor->name()), functionReferenceConstructor, static_cast<unsigned>(PropertyAttribute::ReadOnly | PropertyAttribute::DontDelete));
-    functionReferencePrototype->putDirect(vm, vm.propertyNames->constructor, functionReferenceConstructor,static_cast<unsigned>(PropertyAttribute::DontEnum));
+    functionReferencePrototype->putDirect(vm, vm.propertyNames->constructor, functionReferenceConstructor, static_cast<unsigned>(PropertyAttribute::DontEnum));
 
     this->_nsErrorWrapperConstructor.set(vm, this, NSErrorWrapperConstructor::create(vm, NSErrorWrapperConstructor::createStructure(vm, globalObject, globalObject->functionPrototype())));
     this->putDirect(vm, Identifier::fromString(&vm, "NSErrorWrapper"), this->_nsErrorWrapperConstructor.get());

@@ -206,7 +206,7 @@ Identifier GlobalObject::moduleLoaderResolve(JSGlobalObject* globalObject, ExecS
     auto scope = DECLARE_THROW_SCOPE(vm);
 
     NSString* path = keyValue.toWTFString(execState);
-    RETURN_IF_EXCEPTION(scope, { });
+    RETURN_IF_EXCEPTION(scope, {});
 
     GlobalObject* self = jsCast<GlobalObject*>(globalObject);
 
@@ -325,17 +325,17 @@ JSInternalPromise* GlobalObject::moduleLoaderFetch(JSGlobalObject* globalObject,
 //    ModuleAnalyzer moduleAnalyzer(execState, moduleKey, sourceCode, moduleProgramNode->varDeclarations(), moduleProgramNode->lexicalVariables());
 //    return moduleAnalyzer.analyze(*moduleProgramNode);
 //}
-    
+
 JSObject* GlobalObject::moduleLoaderCreateImportMetaProperties(JSGlobalObject* globalObject, ExecState* exec, JSModuleLoader*, JSValue key, JSModuleRecord*, JSValue) {
     VM& vm = exec->vm();
     auto scope = DECLARE_THROW_SCOPE(vm);
-    
+
     JSObject* metaProperties = constructEmptyObject(exec, globalObject->nullPrototypeObjectStructure());
     RETURN_IF_EXCEPTION(scope, nullptr);
-    
+
     metaProperties->putDirect(vm, Identifier::fromString(&vm, "filename"), key);
     RETURN_IF_EXCEPTION(scope, nullptr);
-    
+
     return metaProperties;
 }
 
@@ -564,14 +564,14 @@ JSValue GlobalObject::moduleLoaderEvaluate(JSGlobalObject* globalObject, ExecSta
 JSInternalPromise* GlobalObject::moduleLoaderImportModule(JSGlobalObject* globalObject, ExecState* exec, JSModuleLoader*, JSString* moduleNameValue, JSValue parameters, const SourceOrigin& sourceOrigin) {
     VM& vm = globalObject->vm();
     auto scope = DECLARE_CATCH_SCOPE(vm);
-    
-    auto rejectPromise = [&] (JSValue error) {
+
+    auto rejectPromise = [&](JSValue error) {
         return JSInternalPromiseDeferred::create(exec, globalObject)->reject(exec, error);
     };
-    
+
     if (sourceOrigin.isNull())
         return rejectPromise(createError(exec, ASCIILiteral("Could not resolve the module specifier.")));
-    
+
     auto referrer = sourceOrigin.string();
     auto moduleName = moduleNameValue->value(exec);
     if (UNLIKELY(scope.exception())) {
@@ -579,11 +579,11 @@ JSInternalPromise* GlobalObject::moduleLoaderImportModule(JSGlobalObject* global
         scope.clearException();
         return rejectPromise(exception);
     }
-    
+
     auto directoryName = extractDirectoryName(referrer.impl());
     if (!directoryName)
         return rejectPromise(createError(exec, makeString("Could not resolve the referrer name '", String(referrer.impl()), "'.")));
-    
+
     auto result = JSC::importModule(exec, Identifier::fromString(&vm, resolvePath(directoryName.value(), ModuleName(moduleName))), parameters, jsUndefined());
     scope.releaseAssertNoException();
     return result;

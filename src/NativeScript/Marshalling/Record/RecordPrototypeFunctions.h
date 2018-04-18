@@ -46,7 +46,7 @@ private:
     static void visitChildren(JSC::JSCell*, JSC::SlotVisitor&);
 
     JSC::WriteBarrier<RecordField> _recordField;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL recordProtoFuncFieldGetter(JSC::ExecState* execState);
 };
 
@@ -86,7 +86,7 @@ private:
     static JSC::CallType getCallData(JSC::JSCell*, JSC::CallData&);
 
     JSC::WriteBarrier<RecordField> _recordField;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL recordProtoFuncFieldGetter(JSC::ExecState* execState);
 };
 } // namespace NativeScript

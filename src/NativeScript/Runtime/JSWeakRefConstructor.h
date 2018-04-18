@@ -31,7 +31,6 @@ public:
     }
 
 private:
-
     JSWeakRefConstructor(JSC::VM& vm, JSC::Structure* structure);
     void finishCreation(JSC::VM& vm, JSWeakRefPrototype* prototype);
 };

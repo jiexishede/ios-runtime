@@ -42,7 +42,7 @@ void JSWorkerGlobalObject::finishCreation(VM& vm, WTF::String applicationPath) {
     Base::finishCreation(vm, applicationPath);
 
     _onmessageIdentifier = Identifier::fromString(&vm, "onmessage");
-    
+
     auto& builtinNames = static_cast<JSVMClientData*>(vm.clientData)->builtinNames();
 
     this->putDirect(vm, Identifier::fromString(&vm, "self"), this->globalExec()->globalThisValue(), PropertyAttribute::DontEnum | PropertyAttribute::ReadOnly | PropertyAttribute::DontDelete);

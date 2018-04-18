@@ -74,7 +74,7 @@ static void attachDerivedMachinery(GlobalObject* globalObject, Class newKlass, J
 
       Structure* superStructure = ObjCSuperObject::createStructure(vm, globalObject, superPrototype);
       ObjCSuperObject* superObject = ObjCSuperObject::create(vm, superStructure, derivedWrapper, globalObject);
-        derivedWrapper->putDirect(vm, vm.propertyNames->superKeyword, superObject, PropertyAttribute::ReadOnly | PropertyAttribute::DontEnum | PropertyAttribute::DontDelete);
+      derivedWrapper->putDirect(vm, vm.propertyNames->superKeyword, superObject, PropertyAttribute::ReadOnly | PropertyAttribute::DontEnum | PropertyAttribute::DontDelete);
 
       return instance;
     });

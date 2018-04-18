@@ -25,7 +25,7 @@ void FunctionReferenceInstance::finishCreation(VM& vm, JSGlobalObject* globalObj
     this->_function = WriteBarrier<JSCell>(vm, this, function);
 }
 
-    EncodedJSValue JSC_HOST_CALL FunctionReferenceInstance::callFunc(ExecState* execState) {
+EncodedJSValue JSC_HOST_CALL FunctionReferenceInstance::callFunc(ExecState* execState) {
     FunctionReferenceInstance* functionReference = jsCast<FunctionReferenceInstance*>(execState->callee().asCell());
 
     CallData callData;

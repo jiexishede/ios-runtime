@@ -61,9 +61,9 @@ protected:
     static bool getOwnPropertySlot(JSC::JSObject*, JSC::ExecState*, JSC::PropertyName, JSC::PropertySlot&);
 
     const Metadata::InterfaceMeta* _metadata;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL constructObjCClass(JSC::ExecState* execState);
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL createObjCClass(JSC::ExecState* execState);
 
 private:

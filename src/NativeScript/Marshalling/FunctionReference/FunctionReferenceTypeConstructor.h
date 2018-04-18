@@ -29,11 +29,11 @@ public:
 
 private:
     FunctionReferenceTypeConstructor(JSC::VM& vm, JSC::Structure* structure)
-        : Base(vm, structure,&constructFunctionReferenceTypeInstance, &constructFunctionReferenceTypeInstance) {
+        : Base(vm, structure, &constructFunctionReferenceTypeInstance, &constructFunctionReferenceTypeInstance) {
     }
 
     void finishCreation(JSC::VM&, JSObject*);
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL constructFunctionReferenceTypeInstance(JSC::ExecState* execState);
 };
 } // namespace NativeScript

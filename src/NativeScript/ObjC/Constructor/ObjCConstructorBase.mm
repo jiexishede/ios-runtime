@@ -321,5 +321,4 @@ EncodedJSValue JSC_HOST_CALL ObjCConstructorBase::createObjCClass(ExecState* exe
     });
     return JSValue::encode(result);
 }
-
 }

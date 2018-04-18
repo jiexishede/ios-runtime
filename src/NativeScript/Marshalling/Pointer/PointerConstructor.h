@@ -17,7 +17,7 @@ class PointerPrototype;
 class PointerConstructor : public JSC::InternalFunction {
 public:
     typedef JSC::InternalFunction Base;
-    
+
     static JSC::EncodedJSValue JSC_HOST_CALL constructPointerInstance(JSC::ExecState* execState);
 
     static PointerConstructor* create(JSC::VM& vm, JSC::Structure* structure, PointerPrototype* pointerPrototype) {
