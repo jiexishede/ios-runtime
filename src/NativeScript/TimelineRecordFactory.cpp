@@ -16,7 +16,7 @@ Ref<JSON::Object> TimelineRecordFactory::createGenericRecord(JSC::ExecState* sta
     return record;
 }
 
-Ref<InspectorObject> TimelineRecordFactory::createConsoleProfileData(const String& title) {
+Ref<JSON::Object> TimelineRecordFactory::createConsoleProfileData(const String& title) {
     Ref<JSON::Object> data = JSON::Object::create();
     data->setString("title", title);
     return data;
